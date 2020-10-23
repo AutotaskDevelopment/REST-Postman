@@ -1,0 +1,2419 @@
+{
+	"info": {
+		"_postman_id": "aadbd0bc-08f9-4123-a6dd-c673004e6fe3",
+		"name": "2020.10.23 - Autotask Collecction - Must fill in variables on collection",
+		"description": "This is a collection of Postman requests to assist you in learning about the Autotask PSA REST API. \r\nIn order to simplify in using this you must update the Variables tab on the collection and enter into \"Current Value\" for each of the following:\r\n    [1] Webservice string like \"webservices2\" or webservices15 or whichever zone your database is located.\r\n    [2] ApiIntegrationCode - Provided to 3rd Party Vendors or Custom Tracking Identifier from Create API User  screen.\r\n    [3] Api UserName you defined on the Create API User screen\r\n    [4] Secret you defined on the Create API User screen.    \r\n\r\nSome of these request will need to be updated to utilize the ID's and field information specific to your database in order to work. In most cases, issues with using these request are related to data specific to your database or the API user not having permissions to what is being test. These are for example and educational purposes only and there is no guarantee or warranty that they will always work. \r\n\r\nPlease refer to on-line help on how to create an API user at\r\nhttps://ww2.autotask.net/help/Content/AdminSetup/1FeaturesSettings/ResourcesUsers/Resources/API_User_Add_Edit.htm\r\n\r\nPlease refer to on-line help for REST documentation at\r\nhttps://ww2.autotask.net/help/DeveloperHelp/Content/AdminSetup/2ExtensionsIntegrations/APIs/REST/REST_API_Home.htm",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ZoneInformation (non-authenticated)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/zoneInformation?user=user@johnandersondemo.com",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"zoneInformation"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "user@johnandersondemo.com"
+						}
+					]
+				},
+				"description": "Query User Zone Information \r\n\r\nThe response should contain information similar to the following for the full username you specify.\r\n{\r\n    \"zoneName\": \"Pre Release\",\r\n    \"url\": \"https://webservices2.autotask.net/ATServicesRest/\",\r\n    \"webUrl\": \"https://ww2.autotask.net/\",\r\n    \"ci\": 30595\r\n}\r\n\r\nSee on-line help for more information.\r\nhttps://ww2.autotask.net/help/DeveloperHelp/Content/AdminSetup/2ExtensionsIntegrations/APIs/REST/API_Calls/REST_ZoneInformation.htm"
+			},
+			"response": []
+		},
+		{
+			"name": "API Call Limits - ThresholdInformation",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/ThresholdInformation",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"ThresholdInformation"
+					]
+				},
+				"description": "To ensure an acceptable response time for all REST API users and prevent inadvertent coding errors from crippling the system, Autotask PSA sets a limit of 10,000 on the number of external requests allowed per hour between an individual database and all API activity.\r\n\r\nDevelopers of the Autotask API should be aware of these limits and as all integrations on a customer database contribute to this limit so awareness and error handling to deal with high usage and exceeeded threshold are recommended. \r\n\r\nPlease refer to on-line help for additional information.\r\nhttps://ww2.autotask.net/help/DeveloperHelp/Content/AdminSetup/2ExtensionsIntegrations/APIs/REST/General_Topics/REST_Thresholds_Limits.htm?Highlight=threshold"
+			},
+			"response": []
+		},
+		{
+			"name": "Entity Information on Companies ",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Companies/entityinformation",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Companies",
+						"entityinformation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Entity Field Information example on Companies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Companies/entityinformation/fields",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Companies",
+						"entityinformation",
+						"fields"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Entity Field Information example on Tickets",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Tickets/entityinformation/fields",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Tickets",
+						"entityinformation",
+						"fields"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Entity Field Information example on Contacts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Contacts/entityinformation/fields",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Contacts",
+						"entityinformation",
+						"fields"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch API threshold information",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/ThresholdInformation",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"ThresholdInformation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query of Contacts with Company ID of  167",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Contacts/query?search={\"filter\":[{\"op\":\"eq\",\"field\":\"CompanyID\",\"value\":175}]}",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Contacts",
+						"query"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "{\"filter\":[{\"op\":\"eq\",\"field\":\"CompanyID\",\"value\":175}]}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query of Companies with and ID of  zero",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Companies/0",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Companies",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query of Companies where CompanyName = \"ACME Corp\"",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Companies/query?search={\"filter\":[{\"op\":\"eq\",\"field\":\"CompanyName\",\"value\":\"ACME Corp\"}]}",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Companies",
+						"query"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "{\"filter\":[{\"op\":\"eq\",\"field\":\"CompanyName\",\"value\":\"ACME Corp\"}]}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query of Companies where ID is Not Null (returns all companies)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Companies/query?search={ \"filter\":[{\"op\" : \"exist\", \"field\" : \"id\" }]}",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Companies",
+						"query"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "{ \"filter\":[{\"op\" : \"exist\", \"field\" : \"id\" }]}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query of Companies where CompanyType in a list (customer, prospect, vendor)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Companies/query?search={\"filter\":[{\"op\":\"in\",\"field\":\"CompanyType\",\"value\":[1,3,7]}]}",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Companies",
+						"query"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "{\"filter\":[{\"op\":\"in\",\"field\":\"CompanyType\",\"value\":[1,3,7]}]}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query of Companies where UDF CustomerRanking = \"Golden\"",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Companies/query?search={\"filter\":[{\"op\":\"eq\",\"field\":\"CustomerRanking\",\"udf\":true,\"value\":\"Golden\"}]}",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Companies",
+						"query"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "{\"filter\":[{\"op\":\"eq\",\"field\":\"CustomerRanking\",\"udf\":true,\"value\":\"Golden\"}]}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query of Companies & return only selected fields (IncludeFields)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Companies/query?search={\"IncludeFields\": [\"Id\", \"isactive\",\"companyName\", \"phone\"],\"filter\":[{\"op\":\"eq\",\"field\":\"id\",\"value\":0}]}  ",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Companies",
+						"query"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "{\"IncludeFields\": [\"Id\", \"isactive\",\"companyName\", \"phone\"],\"filter\":[{\"op\":\"eq\",\"field\":\"id\",\"value\":0}]}  "
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query for Count of Companies with CompanyType = 1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Companies/query/count?search={\"filter\":[{\"op\":\"eq\",\"field\":\"CompanyType\",\"value\":1}]}",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Companies",
+						"query",
+						"count"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "{\"filter\":[{\"op\":\"eq\",\"field\":\"CompanyType\",\"value\":1}]}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query of Companies, max return of 10 records, with CompanyType = 1 Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Companies/query?search={\"MaxRecords\":10, \"filter\":[{\"op\":\"eq\",\"field\":\"CompanyType\",\"value\":1}]}",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Companies",
+						"query"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "{\"MaxRecords\":10, \"filter\":[{\"op\":\"eq\",\"field\":\"CompanyType\",\"value\":1}]}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query tickets field information to get Ticket Status picklist values",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/tickets/entityinformation/fields",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"tickets",
+						"entityinformation",
+						"fields"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query tickets Not Complete for a specific Company",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/tickets/query?search={\"filter\":[{\"op\":\"noteq\",\"field\":\"Status\",\"value\":5},{\"op\":\"eq\",\"field\":\"CompanyID\",\"value\":175}]}",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"tickets",
+						"query"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "{\"filter\":[{\"op\":\"noteq\",\"field\":\"Status\",\"value\":5},{\"op\":\"eq\",\"field\":\"CompanyID\",\"value\":175}]}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query of Invoices for InvoideDateTime greater than a value.",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/invoices/query?search={\"filter\":[{\"op\":\"gte\",\"field\":\"InvoiceDateTime\",\"value\":\"2090-09-01T00:00:00\"}]}",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"invoices",
+						"query"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "{\"filter\":[{\"op\":\"gte\",\"field\":\"InvoiceDateTime\",\"value\":\"2090-09-01T00:00:00\"}]}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query of and Invoice BillingItems for a specific invoice ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/BillingItems/query?search={\"filter\":[{\"op\":\"eq\",\"field\":\"InvoiceID\",\"value\":7364}]}",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"BillingItems",
+						"query"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "{\"filter\":[{\"op\":\"eq\",\"field\":\"InvoiceID\",\"value\":7364}]}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query of SalesOrder",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/SalesOrders/query?search={ \"filter\": [ {\"op\" : \"eq\", \"field\" : \"BillToCountryID\", \"value\":237 }]}",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"SalesOrders",
+						"query"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "{ \"filter\": [ {\"op\" : \"eq\", \"field\" : \"BillToCountryID\", \"value\":237 }]}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query UDF Information on on Companies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/UserDefinedFieldDefinitions/query?search={\"filter\":[{\"op\":\"eq\",\"field\":\"UdfType\",\"value\":1}]}",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"UserDefinedFieldDefinitions",
+						"query"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "{\"filter\":[{\"op\":\"eq\",\"field\":\"UdfType\",\"value\":1}]}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query of Contacts using a POST with Grouping (AND's & OR's)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"filter\": [\r\n        {\r\n            \"op\": \"eq\",\r\n            \"field\": \"IsActive\",\r\n            \"value\": true\r\n        },\r\n        {\r\n            \"op\": \"or\",\r\n            \"items\": [\r\n                {\r\n                    \"op\": \"eq\",\r\n                    \"field\": \"lastname\",\r\n                    \"value\": \"Smith\"\r\n                },\r\n                {\r\n                    \"op\": \"eq\",\r\n                    \"field\": \"lastname\",\r\n                    \"value\": \"Jones\"\r\n                },\r\n                {\r\n                    \"op\": \"and\",\r\n                    \"items\": [\r\n                        {\r\n                            \"op\": \"eq\",\r\n                            \"field\": \"firstname\",\r\n                            \"value\": \"Chris\"\r\n                        },\r\n                        {\r\n                            \"op\": \"eq\",\r\n                            \"field\": \"lastname\",\r\n                            \"value\": \"Brady\"\r\n                        }\r\n                    ]\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Contacts/query",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Contacts",
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create UDF on on Companies",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\": 0,\r\n\t\"DataType\": 1,\r\n\t\"Name\": \"Company Ranking\",\r\n\t\"UdfType\": 1\r\n}"
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/UserDefinedFieldDefinitions",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"UserDefinedFieldDefinitions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a ContactGroup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"value": "{{ApiIntegrationCode}}",
+						"name": null,
+						"type": "text"
+					},
+					{
+						"key": "UserName",
+						"value": "{{UserName}}",
+						"name": null,
+						"type": "text"
+					},
+					{
+						"key": "Secret",
+						"value": "{{Secret}}",
+						"name": null,
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"name": "Content-Type",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"0\",\n    \"Name\": \"Test 1 Create of Contact Group  x\",\n    \"IsActive\": \"True\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/ContactGroups",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"ContactGroups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Company work",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"companyName\":\"Postman Create Company n\",\r\n    \"companyType\":1,\r\n    \"ownerResourceID\":4,\r\n    \"phone\":\"5555555555\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Companies",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Companies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Ticket",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"companyID\": 0,\n    \"QueueID\": 5,\n    \"dueDateTime\": \"2030-03-21T00:00:00\",\n    \"priority\": 2,\n    \"status\": 5,\n    \"title\": \"POSTMAN Create Ticket Test n\",\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Tickets",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Tickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Ticket Note",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\tTicketID: 7865,\n    \"Description\": \"Postman Ticket Note Create Test Description n\",\n\t\"NoteType\": 1,\n\t\"Publish\": 1,\n\t\"Title\": \"Postman Ticket Note Create Test Description n\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Tickets/7865/Notes",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Tickets",
+						"7865",
+						"Notes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Attachment Create to Ticket - text file Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"value": "{{ApiIntegrationCode}}",
+						"type": "text"
+					},
+					{
+						"key": "UserName",
+						"value": "{{UserName}}",
+						"type": "text"
+					},
+					{
+						"key": "Secret",
+						"value": "{{Secret}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 0,\n    \"attachDate\": \"2020-10-05T10:59:57.537\",\n    \"attachedByContactID\": null,\n    \"attachedByResourceID\": null,\n    \"attachmentType\": \"FILE_ATTACHMENT\",\n    \"fullPath\": \"TestText.txt\",\n    \"publish\": 1,\n    \"title\": \"Test text to a ticket\",\n    \"data\": \"VGVzdCB0ZXh0IGZpbGUgdG8gYXR0YWNoLg0KTGluZSAyDQo=\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Tickets/7848/Attachments",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Tickets",
+						"7848",
+						"Attachments"
+					]
+				},
+				"description": "Plese see on-line help for additional information on attachments.\r\n\r\nhttps://ww2.autotask.net/help/DeveloperHelp/Content/AdminSetup/2ExtensionsIntegrations/APIs/REST/Entities/TicketAttachmentsEntity.htm\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "AttachmentInfo for specific ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 0,\n    \"attachDate\": \"2020-08-05T10:59:57.537\",\n    \"attachedByContactID\": null,\n    \"attachedByResourceID\": 29682885,\n    \"attachmentType\": \"FILE_ATTACHMENT\",\n    \"fullPath\": \"TestText.txt\",\n    \"parentID\": 7828,\n    \"publish\": 1,\n    \"title\": \"Test text to a ticket\",\n    \"data\": \"VGVzdCB0ZXh0IGZpbGUgdG8gYXR0YWNoLg0KTGluZSAyDQo=\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/AttachmentInfo/90",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"AttachmentInfo",
+						"90"
+					]
+				},
+				"description": "Plese see on-line help for additional information on attachments.\r\n\r\nhttps://ww2.autotask.net/help/DeveloperHelp/Content/AdminSetup/2ExtensionsIntegrations/APIs/REST/Entities/TicketAttachmentsEntity.htm\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "AttachmentInfo for a specific ParentID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 0,\n    \"attachDate\": \"2020-08-05T10:59:57.537\",\n    \"attachedByContactID\": null,\n    \"attachedByResourceID\": 29682885,\n    \"attachmentType\": \"FILE_ATTACHMENT\",\n    \"fullPath\": \"TestText.txt\",\n    \"parentID\": 7828,\n    \"publish\": 1,\n    \"title\": \"Test text to a ticket\",\n    \"data\": \"VGVzdCB0ZXh0IGZpbGUgdG8gYXR0YWNoLg0KTGluZSAyDQo=\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/AttachmentInfo/query?search={\"filter\":[{\"op\":\"eq\",\"field\":\"ParentID\",\"value\":175}]}",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"AttachmentInfo",
+						"query"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "{\"filter\":[{\"op\":\"eq\",\"field\":\"ParentID\",\"value\":175}]}"
+						}
+					]
+				},
+				"description": "Plese see on-line help for additional information on attachments.\r\n\r\nhttps://ww2.autotask.net/help/DeveloperHelp/Content/AdminSetup/2ExtensionsIntegrations/APIs/REST/Entities/TicketAttachmentsEntity.htm\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Attachment Delete to Ticket",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"value": "{{ApiIntegrationCode}}",
+						"type": "text"
+					},
+					{
+						"key": "UserName",
+						"value": "{{UserName}}",
+						"type": "text"
+					},
+					{
+						"key": "Secret",
+						"value": "{{Secret}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 0,\n    \"attachDate\": \"2020-08-05T10:59:57.537\",\n    \"attachedByContactID\": null,\n    \"attachedByResourceID\": 29682885,\n    \"attachmentType\": \"FILE_ATTACHMENT\",\n    \"fullPath\": \"TestText.txt\",\n    \"parentID\": 7828,\n    \"publish\": 1,\n    \"title\": \"Test text to a ticket\",\n    \"data\": \"VGVzdCB0ZXh0IGZpbGUgdG8gYXR0YWNoLg0KTGluZSAyDQo=\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Tickets/7828/Attachments/91",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Tickets",
+						"7828",
+						"Attachments",
+						"91"
+					]
+				},
+				"description": "Plese see on-line help for additional information on attachments.\r\n\r\nhttps://ww2.autotask.net/help/DeveloperHelp/Content/AdminSetup/2ExtensionsIntegrations/APIs/REST/Entities/TicketAttachmentsEntity.htm\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Attachment Create to Ticket - Contact Impersonation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 0,\n    \"attachDate\": \"2020-10-05T10:59:57.537\",\n    \"attachedByContactID\": 30682903,\n    \"attachedByResourceID\": null,\n    \"attachmentType\": \"FILE_ATTACHMENT\",\n    \"fullPath\": \"TestText.txt\",\n    \"publish\": 1,\n    \"title\": \"Test text to a ticket\",\n    \"data\": \"VGVzdCB0ZXh0IGZpbGUgdG8gYXR0YWNoLg0KTGluZSAyDQo=\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Tickets/7848/Attachments",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Tickets",
+						"7848",
+						"Attachments"
+					]
+				},
+				"description": "Contact Impersonation requires 2 things:\r\n    [1] Provide valid contact ID in attachedByContactID\r\n    [2] Enable API User contact impresonation settings on copy of system API User security level.\r\n\r\n\r\n\r\nPlese see on-line help for additional information on attachments.\r\n\r\nhttps://ww2.autotask.net/help/DeveloperHelp/Content/AdminSetup/2ExtensionsIntegrations/APIs/REST/Entities/TicketAttachmentsEntity.htm\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Attachment Create to Ticket - Resource Impersonation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"value": "{{ApiIntegrationCode}}",
+						"type": "text"
+					},
+					{
+						"key": "UserName",
+						"value": "{{UserName}}",
+						"type": "text"
+					},
+					{
+						"key": "Secret",
+						"value": "{{Secret}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "ImpersonationResourceId",
+						"value": "29682885",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 0,\n    \"attachDate\": \"2020-10-05T10:59:57.537\",\n    \"attachedByContactID\": null,\n    \"attachedByResourceID\": null,\n    \"attachmentType\": \"FILE_ATTACHMENT\",\n    \"fullPath\": \"TestText.txt\",\n    \"publish\": 1,\n    \"title\": \"Test text to a ticket\",\n    \"data\": \"VGVzdCB0ZXh0IGZpbGUgdG8gYXR0YWNoLg0KTGluZSAyDQo=\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/Tickets/7848/Attachments",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"Tickets",
+						"7848",
+						"Attachments"
+					]
+				},
+				"description": "Contact Impersonation requires 2 things:\r\n    [1] Provide valid contact ID in attachedByContactID\r\n    [2] Enable API User contact impresonation settings on copy of system API User security level.\r\n\r\n\r\n\r\nPlese see on-line help for additional information on attachments.\r\n\r\nhttps://ww2.autotask.net/help/DeveloperHelp/Content/AdminSetup/2ExtensionsIntegrations/APIs/REST/Entities/TicketAttachmentsEntity.htm\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Update a ContactGroup",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"4\",\n    \"Name\": \"Test 3 Update of Contact Group x\",\n    \"IsActive\": \"True\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/ContactGroups",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"ContactGroups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch Update a ContactGroup",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"4\",\n    \"IsActive\": \"False\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/ContactGroups",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"ContactGroups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a ContactGroup",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"4\",\n    \"IsActive\": \"False\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/ContactGroups/5",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"ContactGroups",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Webhooks - Step 1 - Create CompanyWebhooks",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"IsActive\": true,\r\n    \"DeactivationUrl\": \"https://yourDeactivationURL.net\",\r\n    \"IsSubscribedToUpdateEvents\": true,\r\n    \"Name\": \"Company Update Webhook\",\r\n    \"SecretKey\": \"enkmoj676nwh8\",\r\n    \"SendThresholdExceededNotification\": false,\r\n    \"WebhookUrl\": \"https://yourWebhookURL.net\",\r\n    \"NotificationEmailAddress\": \"yourNotificationemail@yourdomain_.com\"\r\n}"
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/CompanyWebhooks",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"CompanyWebhooks"
+					]
+				},
+				"description": "Subscribing to webhooks has the following process.\r\n\r\n    [1] Create Webhook (required)\r\n    [2] Add at least 1 field to display or subscribe (required for Webhook to be ready). Display indicates to include in payload. Subscribe indicates to trigger when that field is changed in Autotask.\r\n    [3] Add additional fields to display or subscribe.\r\n    [4] Add resources to NOT trigger the webhook (exclude). The use case is often an integration executing a two way synchronization  doesn't need to trigger a webhook in Autotask to be told it just updated Autotask. This can help in avoiding an infinite notification loop between systems."
+			},
+			"response": []
+		},
+		{
+			"name": "Webhooks - Step 2a -  Retrieve Field Information",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/CompanyWebhookFields/entityInformation/fields",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"CompanyWebhookFields",
+						"entityInformation",
+						"fields"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Webhooks - Step 2b - Add trigger field Company Name(7)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"FieldID\": 7,                  \r\n    \"IsDisplayAlwaysField\": true,\r\n    \"IsSubscribedField\": true,\r\n    \"WebhookID\": 4\r\n}"
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/CompanyWebhooks/4/Fields",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"CompanyWebhooks",
+						"4",
+						"Fields"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Webhooks - Step 2c - Add trigger field Company Type(24)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"FieldID\": 24,                  \r\n    \"IsDisplayAlwaysField\": true,\r\n    \"IsSubscribedField\": true,\r\n    \"WebhookID\": 4\r\n}"
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/CompanyWebhooks/4/Fields",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"CompanyWebhooks",
+						"4",
+						"Fields"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Webhooks - Step 3a -  Retrieve UDF Field Information",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/CompanyWebhookUdfFields/entityInformation/fields",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"CompanyWebhookUdfFields",
+						"entityInformation",
+						"fields"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Webhooks - Step 3b - Add UDF trigger field",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UdfFieldID\": 29682851,                  \r\n    \"IsDisplayAlwaysField\": true,\r\n    \"IsSubscribedField\": true,\r\n    \"WebhookID\": 4\r\n}"
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/CompanyWebhooks/4/UdfFields",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"CompanyWebhooks",
+						"4",
+						"UdfFields"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Webhooks - Step 4 - Exclude Resource",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "ApiIntegrationCode",
+						"name": null,
+						"type": "text",
+						"value": "{{ApiIntegrationCode}}"
+					},
+					{
+						"key": "UserName",
+						"name": null,
+						"type": "text",
+						"value": "{{UserName}}"
+					},
+					{
+						"key": "Secret",
+						"name": null,
+						"type": "text",
+						"value": "{{Secret}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ResourceID\": 29682894,                  \r\n    \"WebhookID\": 4\r\n}"
+				},
+				"url": {
+					"raw": "https://{{webservices[n]}}.autotask.net/atservicesrest/v1.0/CompanyWebhooks/4/ExcludedResources",
+					"protocol": "https",
+					"host": [
+						"{{webservices[n]}}",
+						"autotask",
+						"net"
+					],
+					"path": [
+						"atservicesrest",
+						"v1.0",
+						"CompanyWebhooks",
+						"4",
+						"ExcludedResources"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "334013b7-40ca-45fd-b15e-08a445d59fc3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "027cd25b-2578-415a-99a8-69db9127e4c4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "44177825-9e60-4345-92f0-5db7450b0041",
+			"key": "webservices[n]",
+			"value": "[Update for your zone]"
+		},
+		{
+			"id": "3647006a-6512-42d4-bd82-4454aaa4cbf7",
+			"key": "ApiIntegrationCode",
+			"value": "[Enter the tracking identifier]"
+		},
+		{
+			"id": "8a8c983f-00f7-42be-a043-d8a6e964340d",
+			"key": "UserName",
+			"value": "[Enter API UserName]"
+		},
+		{
+			"id": "6a02420d-ca8e-46b8-ae8d-b94aace28587",
+			"key": "Secret",
+			"value": "[Enter API UserName  secret]"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
